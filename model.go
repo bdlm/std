@@ -53,6 +53,9 @@ type Model interface {
 	// Set stores a value in the internal data store. All values must be
 	// identified by key.
 	Set(key interface{}, value interface{}) error
+	// SetData replaces the current data stored in the model with the
+	// provided data.
+	SetData(data interface{}) error
 	// SetID sets this Model's identifier property.
 	SetID(id interface{})
 	// SetType sets the model type. If any data is stored in this model,
