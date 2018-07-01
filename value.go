@@ -1,7 +1,8 @@
 package std
 
 /*
-Value represents a value stored in a node in a Model.
+Value represents a single data value. Used as an interface to values stored
+in Model nodes.
 */
 type Value interface {
 	// Bool returns the boolean representation of the value of this node, or
