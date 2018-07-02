@@ -36,7 +36,7 @@ type Model interface {
 	GetType() ModelType
 	// Has tests to see of a specified data element exists in this model.
 	Has(key interface{}) bool
-	// Lock marks this model as read-only.
+	// Lock marks this model as read-only. There is no Unlock.
 	Lock()
 	// Map applies a callback to all elements in this model and returns the
 	// result.
@@ -45,10 +45,10 @@ type Model interface {
 	Merge(Model) error
 	// Push a value to the end of the internal data store.
 	Push(value interface{}) error
-	// Reduce iteratively reduces the data to a single value using a
+	// Reduce iteratively reduces the data set to a single value using a
 	// callback function and returns the result.
 	Reduce(callback func(Value) bool) Value
-	// Reverse reverses the order of the data store.
+	// Reverse reverses the order of the data set.
 	Reverse()
 	// Set stores a value in the internal data store. All values must be
 	// identified by key.
@@ -62,5 +62,5 @@ type Model interface {
 	// this property becomes read-only.
 	SetType(typ ModelType) error
 	// Sort sorts the model data.
-	Sort(flags uintptr) error
+	Sort(flag int) error
 }

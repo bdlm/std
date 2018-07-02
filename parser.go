@@ -1,6 +1,8 @@
 package std
 
-import "io"
+import (
+	"io"
+)
 
 /*
 Parser is the interface that wraps the basic Parse method.
