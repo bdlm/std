@@ -61,6 +61,4 @@ type Model interface {
 	// SetType sets the model type. If any data is stored in this model,
 	// this property becomes read-only.
 	SetType(typ ModelType) error
-	// Sort sorts the model data.
-	Sort(flag int) error
 }
