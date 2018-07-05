@@ -1,43 +1,40 @@
 package std
 
 /*
-Logger defines a common logger interface. Because you're package
-acceepts an injected logger. Right?
+Logger defines a common logger interface for packages that accept an
+injected logger.
 
 This interface declares that, because golang.org/pkg/log is insufficient
-(or at least cumbersome) for high quality visibility into high-throughput
+(or at least cumbersome) for good visibility into high-throughput
 software in load-balanced, clustered, and/or multi-stage environments, a
-logger that is more friendly to those situations required.
+logger that is more friendly to those situations is required.
 
 Packages that implement this interface should support level codes and
-expect interface usage as follows:
+expect usage as follows:
 
-	0 - Panic, highest level of severity. Log and then call panic.
-	1 - Fatal, log and then call `os.Exit(<code>)` with a non-zero value.
-	2 - Error, used for errors that should definitely be noted and
-	    addressed.
-	3 - Warn, non-critical information about undesirable behavior that
-	    needs to be addressed in some way.
-	4 - Info, general operational information about what's happening
-	    inside an application.
-	5 - Debug, usually only enabled when debugging. Add anything
-		useful, but still exclude PII or sensitive data...
+	- Panic, highest level of severity. Log and then call panic.
+	- Fatal, log and then call `os.Exit(<code>)` with a non-zero value.
+	- Error, used for errors that should definitely be noted and addressed.
+	- Warn, non-critical information about undesirable behavior that needs
+	  to be addressed in some way.
+	- Info, general operational information about what's happening inside an
+	  application.
+	- Debug, usually only enabled when debugging. Add anything useful, but
+	  still exclude PII or sensitive data...
 
-Each level should include all the log levels below it.
+Each level should include all the log levels above it. Compatible logger
+packages include:
+
+	- "github.com/sirupsen/logrus"
 */
 type Logger interface {
 
-	// Controls which level of log message is output.
-	SetLevel(uint)
-
-	// Level 0
 	// Panic methods should end with a call to the panic() builtin to
 	// allow recovery.
 	Panic(args ...interface{})
 	Panicf(format string, args ...interface{})
 	Panicln(args ...interface{})
 
-	// Level 1
 	// Fatal methods should call os.Exit() with a non-zero exit status.
 	Fatal(args ...interface{})
 	Fatalf(format string, args ...interface{})
