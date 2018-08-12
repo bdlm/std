@@ -48,8 +48,6 @@ type Model interface {
 	// Reduce iteratively reduces the data set to a single value using a
 	// callback function and returns the result.
 	Reduce(callback func(Value) bool) Value
-	// Reverse reverses the order of the data set.
-	Reverse()
 	// Set stores a value in the internal data store. All values must be
 	// identified by key.
 	Set(key interface{}, value interface{}) error
