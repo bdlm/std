@@ -1,16 +1,14 @@
 package std
 
+// SortFlag provides a type for sort flags
 type SortFlag int
 
 const (
 	// SortByKey - sort hash data by key
 	SortByKey SortFlag = iota
-	SortStrings
 )
 
-/*
-Sorter
-*/
+// Sorter describes a sorter.
 type Sorter interface {
 	// Reverse reverses the order of the data set.
 	Reverse(SortFlag) error
