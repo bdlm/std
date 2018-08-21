@@ -1,4 +1,4 @@
-package std
+package iterator
 
 /*
 Iterator defines a simple interator interface.

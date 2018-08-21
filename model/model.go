@@ -1,4 +1,4 @@
-package std
+package model
 
 /*
 ModelType defines a type for use by models.

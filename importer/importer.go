@@ -1,4 +1,4 @@
-package std
+package importer
 
 /*
 Importer is the interface that wraps the basic Import method.
