@@ -1,4 +1,4 @@
-package std
+package model
 
 /*
 Value represents a single data value. Used as an interface to values stored

@@ -1,8 +1,4 @@
-package std
-
-import (
-	"github.com/bdlm/std/logger"
-)
+package logger
 
 /*
 Logger defines a common logger interface for packages that accept an
@@ -33,10 +29,12 @@ Compatible logger packages include:
 	- "github.com/sirupsen/logrus"
 */
 type Logger interface {
+	// WithFields adds a map of key/value data to the log entry.
+	WithFields(Fields)
 
 	// SetLevel sets the log level of this logger. Accepts any unsigned
 	// integer.
-	SetLevel(level logger.Level)
+	SetLevel(level Level)
 
 	// Fatal methods should call os.Exit() with a non-zero exit status.
 	Fatal(args ...interface{})

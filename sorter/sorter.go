@@ -1,4 +1,4 @@
-package std
+package sorter
 
 // SortFlag provides a type for sort flags
 type SortFlag int

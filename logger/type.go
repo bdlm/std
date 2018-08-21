@@ -24,3 +24,6 @@ const (
 	// Trace level. Usually only enabled when debugging. Extremely verbose logging, generally including a full stack trace.
 	Trace Level = 60
 )
+
+// Fields defines a map of fields to be passed to WithFields()
+type Fields map[string]interface{}
