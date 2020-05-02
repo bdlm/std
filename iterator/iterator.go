@@ -1,8 +1,6 @@
 package iterator
 
-/*
-Iterator defines a simple interator interface.
-*/
+// Iterator defines a simple interator interface.
 type Iterator interface {
 	// Cur reads the key and value at the current cursor postion into pK and
 	// pV respectively. Cur will return false if no iteration has begun,

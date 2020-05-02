@@ -1,33 +1,31 @@
 package logger
 
-/*
-Logger defines a common logger interface for packages that accept an
-injected logger. It fully implements the standard 'pkg/log' log package
-logging methods as well Info, Warn, Error, and Debug level equivalents.
-The Info* methods are expected to mirror the Print* methods.
-
-Packages that implement this interface should support level codes and
-expect usage as follows:
-
-	- Panic, highest level of severity. Log and then call panic.
-	- Fatal, log and then call `os.Exit(<code>)` with a non-zero value.
-	- Error, used for errors that should definitely be noted and addressed.
-	- Warn, non-critical information about undesirable behavior that needs
-	  to be addressed in some way.
-	- Info, general operational information about what's happening inside an
-	  application. 'Print' methods should output Info-level information.
-	- Debug, usually only enabled when debugging. Add anything useful, but
-	  still exclude PII or sensitive data...
-
-Each level should include all the log levels above it. To manage the output,
-this interface also implements a SetLevel(level uint) method that defines
-the log level of this logger.
-
-Compatible logger packages include:
-
-	- "github.com/bdlm/log"
-	- "github.com/sirupsen/logrus"
-*/
+// Logger defines a common logger interface for packages that accept an
+// injected logger. It fully implements the standard 'pkg/log' log package
+// logging methods as well Info, Warn, Error, and Debug level equivalents.
+// The Info* methods are expected to mirror the Print* methods.
+//
+// Packages that implement this interface should support level codes and
+// expect usage as follows:
+//
+// 	- Panic, highest level of severity. Log and then call panic.
+// 	- Fatal, log and then call `os.Exit(<code>)` with a non-zero value.
+// 	- Error, used for errors that should definitely be noted and addressed.
+// 	- Warn, non-critical information about undesirable behavior that needs
+// 	  to be addressed in some way.
+// 	- Info, general operational information about what's happening inside an
+// 	  application. 'Print' methods should output Info-level information.
+// 	- Debug, usually only enabled when debugging. Add anything useful, but
+// 	  still exclude PII or sensitive data...
+//
+// Each level should include all the log levels above it. To manage the output,
+// this interface also implements a SetLevel(level uint) method that defines
+// the log level of this logger.
+//
+// Compatible logger packages include:
+//
+// 	- "github.com/bdlm/log"
+// 	- "github.com/sirupsen/logrus"
 type Logger interface {
 	// WithFields adds a map of key/value data to the log entry.
 	WithFields(Fields)

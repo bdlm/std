@@ -1,8 +1,6 @@
 package model
 
-/*
-ModelType defines a type for use by models.
-*/
+// ModelType defines a type for use by models.
 type ModelType int
 
 const (
@@ -14,14 +12,12 @@ const (
 	ModelTypeHash
 )
 
-/*
-Model is a list or a map of Values.
-
-This interface defines data storage and access methods for data models in
-order to provide a consistent interface for communicating messages between
-instances. This allows several abstractions on and recursions into
-multidimensional untyped data structures.
-*/
+// Model is a list or a map of Values.
+//
+// This interface defines data storage and access methods for data models in
+// order to provide a consistent interface for communicating messages between
+// instances. This allows several abstractions on and recursions into
+// multidimensional untyped data structures.
 type Model interface {
 	// Delete removes a value from this model.
 	Delete(key interface{}) error
