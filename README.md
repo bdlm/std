@@ -19,7 +19,7 @@ Useful go interfaces for building consistent, testable, mockable packages.
 
 Interfaces available in the standard library should be preferred over anything you find here.
 
-# Install
+## Install
 
 ```
 go get github.com/bdlm/std/v2
