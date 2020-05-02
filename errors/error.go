@@ -10,11 +10,11 @@ type Error interface {
 
 	// Has tests to see if the test error exists anywhere in the error
 	// stack.
-	Has(test error) bool
+	Has(error) bool
 
 	// Is tests to see if the test error matches most recent error in the
 	// stack.
-	Is(test error) bool
+	Is(error) bool
 
 	// Unwrap returns the next error, if any.
 	Unwrap() Error
