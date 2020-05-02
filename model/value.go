@@ -1,9 +1,7 @@
 package model
 
-/*
-Value represents a single data value. Used as an interface to values stored
-in Model nodes.
-*/
+// Value represents a single data value. Used as an interface to values stored
+// in Model nodes.
 type Value interface {
 	// Bool returns the boolean representation of the value of this node, or
 	// an error if the type conversion is not possible.

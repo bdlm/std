@@ -1,23 +1,21 @@
 package error
 
-// Error defines a slightly more robust error interface than the standard
-// library.
+// Error defines a robust error stack interface.
 type Error interface {
-	// Code returns the associated error code. A value of 0 should be
-	// considered uncoded.
-	Code() Code
-	// Caller returns the runtime caller information for this error.
+	// Caller returns the associated Caller instance.
 	Caller() Caller
-	// Err returns the original error
-	Err() error
-	// Error implements standard library compatibility. Error should return the
-	// string associated with the error code, or the error message if there
-	// isn't one
+
+	// Error implements error.
 	Error() string
-	// String is an alias of Error.
-	String() string
-	// Msg returns the original error message.
-	Msg() string
-	// Trace returns the full stack trace of this error.
-	Trace() Trace
+
+	// Has tests to see if the test error exists anywhere in the error
+	// stack.
+	Has(test error) bool
+
+	// Is tests to see if the test error matches most recent error in the
+	// stack.
+	Is(test error) bool
+
+	// Unwrap returns the next error, if any.
+	Unwrap() Error
 }

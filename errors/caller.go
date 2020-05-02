@@ -2,9 +2,18 @@ package error
 
 // Caller defines an interface to runtime caller results.
 type Caller interface {
+	// File returns the file in which the call occurred.
 	File() string
+
+	// Func returns the name of the function in which the call occurred.
+	Func() string
+
+	// Line returns the line number in the file in which the call occurred.
 	Line() int
-	Ok() bool
+
+	// Pc returns the program counter.
 	Pc() uintptr
-	String() string
+
+	// Trace returns the call stack.
+	Trace() Trace
 }
