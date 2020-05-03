@@ -62,7 +62,7 @@ type Logger interface {
 	Info(args ...interface{})
 	Infof(format string, args ...interface{})
 	Infoln(args ...interface{})
-	// pkg/log compatiblity, alias to Info* methods.
+	// pkg/log compatibility, alias to Info* methods.
 	Print(args ...interface{})
 	Printf(format string, args ...interface{})
 	Println(args ...interface{})
