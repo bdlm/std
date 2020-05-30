@@ -1,4 +1,4 @@
-package error
+package caller
 
 // Caller defines an interface to runtime caller results.
 type Caller interface {
@@ -17,3 +17,6 @@ type Caller interface {
 	// Trace returns the call stack.
 	Trace() Trace
 }
+
+// Trace defines a call stack trace.
+type Trace []Caller
