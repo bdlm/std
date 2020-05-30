@@ -1,4 +1,4 @@
-package error
+package caller
 
 // Caller defines an interface to runtime caller results.
 type Caller interface {
