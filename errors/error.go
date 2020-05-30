@@ -16,8 +16,8 @@ type Error interface {
 	// Error implements error.
 	Error() string
 
-	// Is tests to see if the test error matches most recent error in the
-	// stack.
+	// Is tests to see if the test error matches any error in the stack via
+	// equality comparison.
 	Is(error) bool
 
 	// Unwrap returns the wrapped error, if any, otherwise nil.
