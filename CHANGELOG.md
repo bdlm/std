@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - **Minor**: feature additions
 - **Patch**: bug fixes, backward compatible protobuf model changes, etc.
 
+# v2.1.0 - 2020-05-29
+#### Added
+* `Caller` package
+
+#### Changed
+* n/a
+
+#### Removed
+* `github.com/bdlm/std/v2/errors.Caller`
+* `github.com/bdlm/std/v2/errors.Trace`
+
 # v2.0.0 - 2020-05-01
 #### Added
 * `go.mod`
