@@ -1,26 +1,33 @@
 package error
 
 import (
-	std_caller "github.com/bdlm/std/v2/caller"
+	"github.com/bdlm/std/v2/caller"
 )
+
+// Caller is the interface implemented by error types that can expose
+// runtime caller data.
+type Caller interface {
+	// Caller returns the associated Caller instance.
+	Caller() caller.Caller
+}
 
 // Error defines a robust error stack interface.
 type Error interface {
 	// Error implements error.
 	Error() string
 
-	// Has tests to see if the test error exists anywhere in the error
-	// stack.
-	Has(error) bool
-
 	// Is tests to see if the test error matches most recent error in the
 	// stack.
 	Is(error) bool
+
+	// Unwrap returns the wrapped error, if any, otherwise nil.
+	Unwrap() error
 }
 
-// ErrorCaller is the interface implemented by error types that can expose
-// caller information about themselves.
-type ErrorCaller interface {
-	// Caller returns the associated Caller instance.
-	Caller() std_caller.Caller
+// Wrapper is an interface implemented by error types that have wrapped
+// a previous error.
+type Wrapper interface {
+	// Unwrap returns the next error in the error stack, if any, otherwise
+	// nil.
+	Unwrap() error
 }
