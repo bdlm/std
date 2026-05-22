@@ -11,6 +11,12 @@ const (
 	// nil < bool < numeric < string < other.
 	SortByValue
 
+	// SortAsc - sort data in ascending order. This is the default.
+	SortAsc
+
+	// SortDesc - sort data in descending order.
+	SortDesc
+
 	// SortAsString - when sorting data use string comparison via cast. This is
 	// a tiebreak for SortByValue and the default for SortByKey.
 	SortAsString
