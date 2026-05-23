@@ -4,12 +4,12 @@ package sorter
 type SortFlag uint
 
 const (
-	// SortByKey - sort hash data by key.
-	SortByKey SortFlag = 1 << iota
-
 	// SortByValue - sort data by value using type-stratified comparison:
-	// nil < bool < numeric < string < other.
-	SortByValue
+	// nil < bool < numeric < string < other. This is the default/zero value.
+	SortByValue SortFlag = 0
+
+	// SortByKey - sort hash data by key.
+	SortByKey SortFlag = 1 << (iota - 1)
 
 	// SortAsc - sort data in ascending order. This is the default.
 	SortAsc
