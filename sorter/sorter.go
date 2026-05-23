@@ -9,20 +9,20 @@ const (
 	SortByValue SortFlag = 0
 
 	// SortByKey - sort hash data by key.
-	SortByKey SortFlag = 1 << (iota - 1)
+	SortByKey SortFlag = 1 << 0
 
 	// SortAsc - sort data in ascending order. This is the default.
-	SortAsc
+	SortAsc SortFlag = 1 << 1
 
 	// SortDesc - sort data in descending order.
-	SortDesc
+	SortDesc SortFlag = 1 << 2
 
 	// SortAsString - when sorting data use string comparison via cast. This is
 	// a tiebreak for SortByValue and the default for SortByKey.
-	SortAsString
+	SortAsString SortFlag = 1 << 3
 
 	// SortReverse - reverse the order of the data set after sorting.
-	SortReverse
+	SortReverse SortFlag = 1 << 4
 )
 
 // Sorter describes a sorter.
