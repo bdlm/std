@@ -6,6 +6,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - **Minor**: feature additions, removal of deprecated features
 - **Patch**: bug fixes, backward compatible protobuf model changes, etc.
 
+# v2.2.0 - 2026-05-23
+#### Added
+* `model.Model.GetData()` — returns snapshots of the data set and key/index maps; implementations must not expose internal storage directly
+* `model.Model.Reverse()` — reverses the order of the data store
+* `sorter.SortByValue` — zero-value `SortFlag`; type-stratified sort (nil < bool < numeric < string < other); now the default sort behavior
+* `sorter.SortAsc`, `SortDesc`, `SortAsString`, `SortReverse` — explicit bitflag sort options
+* `.gitignore`
+
+#### Changed
+* `model.ModelTypeHash` / `model.ModelTypeList` renamed to `model.HASH` / `model.LIST`; order swapped so `HASH` is the zero/iota value
+* `model.Model.Filter` callback signature changed from `func(Value) Model` to `func(Value) bool`
+* `model.Model.Map` callback signature changed from `func(Value) Model` to `func(Value) Value`
+* `model.Model.Reduce` callback signature changed from `func(Value) bool` to `func(carry, cur Value) Value` (standard fold semantics)
+* `model.Model.SetID` now returns `error`
+* `sorter.SortFlag` underlying type changed from `int` to `uint`
+* `sorter.Sorter.Reverse` signature changed from `Reverse(SortFlag) error` to `Reverse() error`
+
+#### Fixed
+* `errors/error.go` package declaration corrected from `package error` to `package errors`
+
 # v2.1.0 - 2020-05-30
 #### Added
 * `Caller` package
