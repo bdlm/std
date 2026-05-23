@@ -1,4 +1,4 @@
-package error
+package errors
 
 import (
 	"github.com/bdlm/std/v2/caller"
